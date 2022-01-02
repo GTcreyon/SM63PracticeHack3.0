@@ -8,6 +8,7 @@ else
 	command = "";
 	response = "";
 	responseTime = 0;
+	typing = false;
 	//$BASE_INIT
 	onEnterFrame = function()
 	{
@@ -24,7 +25,14 @@ else
 		{
 			response = "";
 		}
-		_root.cmd = command.slice(0,keyPos) + "<u>" + tempCommand.charAt(keyPos) + "</u>" + command.slice(keyPos + 1,command.length) + "\n" + response;
+		if(typing)
+		{
+			_root.cmd = tempCommand.slice(0,keyPos) + "<u>" + tempCommand.charAt(keyPos) + "</u>" + tempCommand.slice(keyPos + 1,tempCommand.length) + "\n" + response;
+		}
+		else
+		{
+			_root.cmd = ""
+		}
 		this.swapDepths(0);
 		this.swapDepths(_root.getNextHighestDepth());
 	};
