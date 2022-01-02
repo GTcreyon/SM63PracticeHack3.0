@@ -12,11 +12,7 @@ else
 	//$BASE_INIT
 	onEnterFrame = function()
 	{
-		var tempCommand = command;
-		if(tempCommand.charAt(tempCommand.length - 1) != " ")
-		{
-			tempCommand += " ";
-		}
+		var tempCommand = command + " "; //add a space to allow it to be underlined for the cursor
 		if(responseTime > 0)
 		{
 			responseTime -= 1;
@@ -31,7 +27,7 @@ else
 		}
 		else
 		{
-			_root.cmd = ""
+			_root.cmd = "\n" + response
 		}
 		this.swapDepths(0);
 		this.swapDepths(_root.getNextHighestDepth());

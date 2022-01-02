@@ -40,12 +40,9 @@ keyListener.onKeyDown = function()
 			keyPos = Math.max(Math.min(keyPos,command.length),0);
 		}
 	}
-	else
+	else if(code == 191) // slash
 	{
-		if(code == 191) //Slash
-		{
-			typing = true;
-		}
+		typing = true;
 	}
 };
 Key.addListener(keyListener);
