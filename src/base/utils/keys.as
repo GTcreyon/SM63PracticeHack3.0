@@ -4,7 +4,7 @@ keyListener.onKeyDown = function()
 {
 	var asc = Key.getAscii();
 	var code = Key.getCode();
-	if(typing)
+	if(_root.typing)
 	{
 		if(asc > 31 && asc < 127)
 		{
@@ -24,10 +24,10 @@ keyListener.onKeyDown = function()
 					break;
 				case Key.ENTER:
 					executeCommand(command);
-					typing = false;
+					_root.typing = false;
 					break;
 				case Key.ESCAPE:
-					typing = false;
+					_root.typing = false;
 					command = "";
 					break;
 				case Key.LEFT:
@@ -42,7 +42,7 @@ keyListener.onKeyDown = function()
 	}
 	else if(code == 191) // slash
 	{
-		typing = true;
+		_root.typing = true;
 	}
 };
 Key.addListener(keyListener);

@@ -6,7 +6,7 @@ if (args[1] == "refill" || args[1] == "full" || args[1] == "fill") {
 	_root.CharHP = 0;
 	respond("Health emptied.");
 } else if (args[1] == "infinite" || args[1] == "infinity" || args[1] == "inf") {
-	_root.CharHP = Infinity
+	_root.CharHP = NaN
 	respond("Health is now infinite.");
 } else {
 	_root.CharHP = args[1];

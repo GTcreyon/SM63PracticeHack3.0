@@ -1,5 +1,8 @@
-_root.codeManager.add(new Code('setpos setposition', 'Sets the player to a certain coordinate.', 'setposition / setpos PLAYER_X PLAYER_Y', function(command) {
-    _root.utils.setPosition(command[1], command[2]);
-
-    _root.textManager.send('message', 'Current position updated.');
-}));
+//setposition;setpos|NUMBER,NUMBER^Moves the player to the given position.
+var x = Number(args[1])
+var y = Number(args[2])
+var new_x = x + _root.Course.BackGFX._x
+var new_y = y + _root.Course.BackGFX._y
+_root.Course.Char._x = new_x
+_root.Course.Char._y = new_y
+respond("Moved player to (" + x + ", " + y + ").");

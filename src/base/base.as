@@ -8,7 +8,7 @@ else
 	command = "";
 	response = "";
 	responseTime = 0;
-	typing = false;
+	_root.typing = false;
 	requestReset = 0;
 	//$BASE_INIT
 	onEnterFrame = function()
@@ -22,7 +22,7 @@ else
 		{
 			response = "";
 		}
-		if(typing)
+		if(_root.typing)
 		{
 			_root.cmd = tempCommand.slice(0,keyPos) + "<u>" + tempCommand.charAt(keyPos) + "</u>" + tempCommand.slice(keyPos + 1,tempCommand.length) + "\n" + response;
 		}
