@@ -1,24 +1,18 @@
-_root.codeManager.add(new Code('water', 'Sets a certain amount of water to the player. From 0 to 10000.', 'water {refill|half|empty|NUMBER}', function(command) {
-    if (command[1] == 'refill') {
-        _root.WaterAmount = _root.TotalWater;
-        _root.textManager.send('message', 'Water has been refilled.');
-    } else if (command[1] == 'half') {
-        _root.WaterAmount = 5000;
-        _root.textManager.send('message', 'Water has been set to half.');
-    } else if (command[1] == 'empty') {
-        _root.WaterAmount = 0;
-        _root.textManager.send('message', 'Water container is now empty.');
-    } else {
-        _root.WaterAmount = Number(command[1]);
-        _root.textManager.send('message', 'Water has been set to ' + _root.WaterAmount + '.');
-    }
-
-    if (command[1] == 'infinite') {
-        _root.WaterAmount = _root.TotalWater;
-        _root.utils.setInfiniteWater(true);
-        _root.textManager.send('message', 'Water is now infinite.');
-    } else {
-        _root.utils.setInfiniteWater(false);
-        _root.textManager.send('message', 'Water is not infinite anymore.');
-    }
-}));
+//water|OPTION[refill/empty/infinity/NUMBER]^Sets the water tank value. From 0 to 10000.
+var infWater = function(){
+	_root.WaterAmount = _root.TotalWater
+}
+clearInterval(waterInterval)
+if (args[1] == "refill" || args[1] == "full" || args[1] == "fill") {
+	_root.WaterAmount = _root.TotalWater
+	respond("Water has been refilled.");
+} else if (args[1] == "death" || args[1] == "kill" || args[1] == "empty") {
+	_root.WaterAmount = 0;
+	respond("Water emptied.");
+} else if (args[1] == "infinite" || args[1] == "infinity" || args[1] == "inf") {
+	waterInterval = setInterval(infWater, 1)
+	respond("Water is now infinite.");
+} else {
+	_root.WaterAmount = args[1];
+	respond("Water has been set to " + _root.WaterAmount + ".");
+}

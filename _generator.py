@@ -6,7 +6,7 @@ import os
 import pyperclip
 
 # constants
-FILE_NAME = "./output/DefineSprite10723.as"
+FILE_NAME = "./output/defineSprite10723.as"
 BASE_FOLDER = "./src/base"
 UTILS_FOLDER = "./src/base/utils"
 CMD_FOLDER = "./src/commands"
