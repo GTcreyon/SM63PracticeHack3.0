@@ -9,6 +9,7 @@ else
 	response = "";
 	responseTime = 0;
 	typing = false;
+	requestReset = 0;
 	//$BASE_INIT
 	onEnterFrame = function()
 	{
@@ -29,6 +30,17 @@ else
 		{
 			_root.cmd = "\n" + response
 		}
+
+		if(requestReset == 1)
+		{
+			requestReset = 0
+			_root.Course.Char.attackFrame = "";
+		}
+		if(requestReset == 2)
+		{
+			requestReset = 1
+		}
+
 		this.swapDepths(0);
 		this.swapDepths(_root.getNextHighestDepth());
 	};

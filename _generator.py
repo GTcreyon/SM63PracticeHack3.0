@@ -18,6 +18,7 @@ def compile_folder(folder):
 		if name.endswith(".as"):
 			file = open(folder + "/" + name, "r")
 			text = file.read()
+			file.close()
 			output += text + "\n"
 	return output
 
@@ -25,15 +26,17 @@ def compile_commands(folder):
 	output = ""
 	list = os.listdir(folder)
 	for name in list:
-		if name.endswith(".as"):
+		if name.endswith(".as") and name[0].lower() == name[0]:
 			file = open(folder + "/" + name, "r")
 			text = file.read()
-			header = text[:text.index("\n")] # get command header
-			aliases = text[2:header.index("|")].split(";") # get command aliases
-			top = ""
-			for alias in aliases:
-				top += "case \"" + alias + "\":\n" # form command aliases
-			output += top + text + "\nbreak;\n"
+			if text.startswith("//"):
+				header = text[:text.index("\n")].split("^") # get command header
+				segments = header[0][2:].split("|")
+				aliases = segments[0].split(";") # get command aliases
+				top = ""
+				for alias in aliases:
+					top += "case \"" + alias + "\":\n" # form command aliases
+				output += top + text + "\nbreak;\n"
 	return output
 
 print("start script generation")

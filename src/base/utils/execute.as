@@ -5,9 +5,11 @@ executeCommand = function(raw)
 		raw = raw.slice(1, raw.length);
 	}
 	args = raw.split(" ");
-	switch(args[0])
+	switch(args[0].toLowerCase())
 	{
 		//$CMD_LIST
+		default:
+			respond("Unknown command.")
 	}
 	command = "";
 }

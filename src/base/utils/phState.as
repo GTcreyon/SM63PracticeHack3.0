@@ -1,6 +1,6 @@
 phState = function(arg) //used for togglable states, e.g. noclip
 {
-	switch(arg)
+	switch(arg.toLowerCase())
 	{
 		case "on":
 		case "true":
@@ -16,5 +16,17 @@ phState = function(arg) //used for togglable states, e.g. noclip
 			return 0;
 		default:
 			return -1;
+	}
+}
+phStateRes = function(arg, bool)
+{
+	switch(arg)
+	{
+		case 0:
+			return false
+		case 1:
+			return true
+		case -1:
+			return !bool
 	}
 }
