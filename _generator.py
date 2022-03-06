@@ -26,7 +26,7 @@ def compile_commands(folder):
 	output = ""
 	list = os.listdir(folder)
 	for name in list:
-		if name.endswith(".as") and name[0].lower() == name[0]:
+		if name.endswith(".as") and name[0] != "_":
 			file = open(folder + "/" + name, "r")
 			text = file.read()
 			if text.startswith("//"):
