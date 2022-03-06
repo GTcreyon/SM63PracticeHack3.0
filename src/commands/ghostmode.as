@@ -7,7 +7,7 @@ if(phBool(args[1]) || args[1] == undefined)
 	executeCommand("lives inf")
 	executeCommand("nc 1")
 	_root.gravity = 0
-	respond("Godmode enabled.")
+	respond("Ghostmode enabled.")
 }
 else
 {
@@ -17,5 +17,5 @@ else
 	executeCommand("lives 4")
 	executeCommand("nc 0")
 	_root.gravity = 1
-	respond("Godmode disabled.")
+	respond("Ghostmode disabled.")
 }
