@@ -5,10 +5,11 @@ if(_root.setup == true)
 else
 {
 	_root.setup = true;
+	_root.camlock = true;
+	_root.typing = false;
 	command = "";
 	response = "";
 	responseTime = 0;
-	_root.typing = false;
 	requestReset = 0;
 	//$BASE_INIT
 	onEnterFrame = function()
