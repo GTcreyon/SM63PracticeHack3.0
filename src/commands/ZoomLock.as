@@ -1,30 +1,41 @@
-_root.codeManager.add(new Code('zoomlock zl', 'Enables or disables the default zoom locking.', 'zoomlock / zl {on|off}', function(command) {
-	if (command[1] == 'on') {
-        if (_root.Maxzoomin == Infinity)
-        {
-            _root.Maxzoomin = 200;
-            _root.Maxzoomout = 50;
-            _root.textManager.send('message', 'Zoom lock has been enabled.');
-        }
-        else
-        {
-            _root.textManager.send('message', 'Zoom lock is already enabled.');
-        }
-    }
-    else if (command[1] == 'off') {
-        if (_root.Maxzoomin == Infinity)
-        {
-            _root.textManager.send('message', 'Zoom lock is already disabled.');
-        }
-        else
-        {
-            _root.Maxzoomin = Infinity;
-            _root.Maxzoomout = -Infinity;
-            _root.textManager.send('message', 'Zoom lock has been disabled.');
-        }
-    }
-    else if (command[1] == undefined)
-    {
-        _root.textManager.send('message', 'Zoom locked: '+!(_root.Maxzoomin == Infinity)); //gross
-    }
-}));	
+//zoomlock;zl|phSTATE^Enables or disables the default zoom locking.
+var state = phState(args[1])
+if (state == 1) {
+	if (_root.Maxzoomin == Infinity)
+	{
+		_root.Maxzoomin = 200;
+		_root.Maxzoomout = 50;
+		respond("Zoom Lock: ON");
+	}
+	else
+	{
+		respond("Zoom lock is already enabled.");
+	}
+}
+else if (state == 0)) {
+	if (_root.Maxzoomin == Infinity)
+	{
+		respond("Zoom lock is already disabled.");
+	}
+	else
+	{
+		_root.Maxzoomin = Infinity;
+		_root.Maxzoomout = -Infinity;
+		respond("Zoom Lock: OFF");
+	}
+}
+else if (state == -1)
+{
+	if(_root.Maxzoomin == Infinity)
+	{
+		_root.Maxzoomin = 200;
+		_root.Maxzoomout = 50;
+		respond("Zoom Lock: ON [toggle]");
+	}
+	else
+	{
+		_root.Maxzoomin = Infinity;
+		_root.Maxzoomout = -Infinity;
+		respond("Zoom Lock: OFF [toggle]");
+	}
+}
