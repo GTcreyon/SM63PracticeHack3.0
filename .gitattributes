@@ -1,4 +1,4 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 # Make sure .as registers as Actionscript
-*.sb linguist-language=ActionScript
+*.as linguist-language=ActionScript
