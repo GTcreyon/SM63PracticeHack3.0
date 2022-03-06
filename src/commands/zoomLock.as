@@ -12,7 +12,7 @@ if (state == 1) {
 		respond("Zoom lock is already enabled.");
 	}
 }
-else if (state == 0)) {
+else if (state == 0) {
 	if (_root.Maxzoomin == Infinity)
 	{
 		respond("Zoom lock is already disabled.");
